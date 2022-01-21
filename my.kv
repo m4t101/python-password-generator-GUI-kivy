@@ -1,0 +1,61 @@
+#:kivy 1.11.1
+<CenteredTextInput@TextInput>:
+    multiline: False
+    on_text: root.update_padding()
+    padding_x: (self.width - self.text_width) / 2
+
+<MyGrid>
+
+    cantidad: caracteres
+    etiqueta: texto_pantalla
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+        
+        GridLayout:
+            cols: 2
+            
+            Label:
+                text: "Cantidad de Caracteres:"
+
+            TextInput:
+                multiline: False
+                id: caracteres
+                hint_text: "Por Favor Ingrese la Cantidad de Caracteres"
+                
+                
+
+        GridLayout:
+            cols: 4
+            Label:
+                text: "Incluir Minusculas:"
+            CheckBox:
+                active: True
+                on_active: root.minus = not root.minus
+
+            Label:
+                text: "Incluir Mayusculas:"
+            CheckBox:
+                active: True
+                on_active: root.mayus = not root.mayus
+
+            Label:
+                text: "Incluir Digitos:"
+            CheckBox:
+                active: True
+                on_active: root.digit = not root.digit
+
+            Label:
+                text: "Incluir Caracteres Especiales:"
+            CheckBox:
+                active: True
+                on_active: root.carac = not root.carac
+
+        Button:
+            text: "Submit"
+            on_press: root.signal()
+        Label:
+            id: texto_pantalla
+            
+        
