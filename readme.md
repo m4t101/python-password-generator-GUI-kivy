@@ -1,7 +1,7 @@
 By Matias Caliz
 
 This is a password generator GUI made with kivy and python as a personal project.
-It can set different parameters such as use lower, upper, special characters or no in the password
+It can set different parameters such as use lower, upper, special characters, and digits or not in the password
 
 ![Screenshot (4113)](https://user-images.githubusercontent.com/69267208/171855671-7117bb35-e423-4013-943f-db34bb4479a7.png)
 ![Screenshot (4114)](https://user-images.githubusercontent.com/69267208/171855673-348b3500-180c-46df-bc80-1f7ad8fcbde6.png)
