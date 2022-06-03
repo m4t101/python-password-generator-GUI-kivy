@@ -6,10 +6,12 @@
 
 <MyGrid>
 
-    cantidad: caracteres
-    etiqueta: texto_pantalla
+    amount: characters
+    lbl: screen
+    copied: copied
 
     GridLayout:
+        id: layout
         cols: 1
         size: root.width, root.height
         
@@ -17,45 +19,55 @@
             cols: 2
             
             Label:
-                text: "Cantidad de Caracteres:"
+                text: "Amount of [b]Characters[/b]:"
+                font_size: '18pt'
+                markup: True
+                color: 'FFCCEE'
+                
+                
 
             TextInput:
                 multiline: False
-                id: caracteres
-                hint_text: "Por Favor Ingrese la Cantidad de Caracteres"
+                id: characters
+                hint_text: "Enter the amount of characters"
+                font_size: '18pt'
                 
-                
-
         GridLayout:
             cols: 4
             Label:
-                text: "Incluir Minusculas:"
+                text: "Include Lower:"
+                align: "left"
             CheckBox:
                 active: True
-                on_active: root.minus = not root.minus
+                on_active: root.lower = not root.lower
 
             Label:
-                text: "Incluir Mayusculas:"
+                text: "Include Upper:"
             CheckBox:
                 active: True
-                on_active: root.mayus = not root.mayus
+                on_active: root.upper = not root.upper
 
             Label:
-                text: "Incluir Digitos:"
+                text: "Include Digits:"
             CheckBox:
                 active: True
                 on_active: root.digit = not root.digit
 
             Label:
-                text: "Incluir Caracteres Especiales:"
+                text: "Include Special Characters:"
             CheckBox:
                 active: True
-                on_active: root.carac = not root.carac
+                on_active: root.special = not root.special
 
-        Button:
-            text: "Submit"
-            on_press: root.signal()
-        Label:
-            id: texto_pantalla
-            
-        
+        GridLayout:
+            cols: 2
+            Button:
+                text: "Submit"
+                on_press: root.signal()
+            Button:
+                text: "Copy to Clipboard"
+                on_press: root.copy()
+            Label:
+                id: screen
+            Label:
+                id: copied
